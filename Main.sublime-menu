@@ -1,0 +1,32 @@
+[
+    {
+        "id": "edit",
+        "children":
+        [
+            {
+                "caption": "Pseudo Block Mode",
+                "id": "pseudo_block_mode",
+                "children":
+                [
+                    {
+                        "command": "toggle_block_mode",
+                        "caption": "Toggle block mode"
+                    },
+                    { "caption": "-" },
+                    {
+                        "command": "enter_block_mode",
+                        "caption": "Enter block mode"
+                    },
+                    {
+                        "command": "exit_block_mode",
+                        "caption": "Exit block mode"
+                    },
+                    {
+                        "command": "align_at_block_end",
+                        "caption": "Align cursors at end"
+                    }
+                ]
+            }
+        ]
+    }
+]

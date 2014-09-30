@@ -1,0 +1,4 @@
+[{                                
+    "keys": ["alt+shift+a"],       
+    "command": "toggle_block_mode"
+}]                                

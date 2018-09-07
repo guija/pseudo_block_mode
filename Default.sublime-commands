@@ -1,5 +1,14 @@
 [
-    { "caption": "Pseudo block mode: Align at end", "command": "align_at_block_end" },
-    { "caption": "Pseudo block mode: Enter block mode", "command": "enter_block_mode" },
-    { "caption": "Pseudo block mode: Exit block mode", "command": "exit_block_mode" }
+    {
+        "caption": "Pseudo block mode: Align at end", 
+        "command": "align_at_block_end" 
+    },
+    { 
+        "caption": "Pseudo block mode: Enter block mode", 
+        "command": "enter_block_mode"
+    },
+    { 
+        "caption": "Pseudo block mode: Exit block mode",
+        "command": "exit_block_mode"
+    }
 ]

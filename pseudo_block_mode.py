@@ -1,10 +1,15 @@
-import sublime, sublime_plugin, re
+import sublime
+import sublime_plugin
+import re
 
-def getViewRegion(view): return sublime.Region(0, view.size())
-def getViewContent(view): return view.substr(getViewRegion(view))
+def getViewRegion(view):
+   return sublime.Region(0, view.size())
 
-# Enters block mode by appending whitespace to every line
-class ToggleBlockMode(sublime_plugin.TextCommand):
+def getViewContent(view):
+   return view.substr(getViewRegion(view))
+
+# Enters block mode by appending whitespace to every line aligning with the longest line
+class ToggleBlockModeCommand(sublime_plugin.TextCommand):
    currentModeKey = "current_block_mode"
    def run(self,edit):
       settings = self.view.settings();
@@ -18,23 +23,28 @@ class ToggleBlockMode(sublime_plugin.TextCommand):
          self.view.run_command('exit_block_mode')
 
 # Enters block mode by appending whitespace to every line
-class EnterBlockMode(sublime_plugin.TextCommand):
+class EnterBlockModeCommand(sublime_plugin.TextCommand):
    def run(self,edit):
+      self.view.show_popup("enter_block_mode")
       content = getViewContent(self.view)
       lines = content.splitlines()
       maxLineLength = max([len(line) for line in lines])
       newContent = "".join([ line + ((maxLineLength-len(line)) * " ") + "\n" for line in lines])
       self.view.replace(edit,getViewRegion(self.view),newContent)
 
-# Exits whitespace by removing trailing whitespace
-class ExitBlockMode(sublime_plugin.TextCommand):
+# Exits by removing trailing whitespace
+class ExitBlockModeCommand(sublime_plugin.TextCommand):
    def run(self,edit):
       content = getViewContent(self.view)
       lines = content.splitlines()
       newContent = "".join([line.rstrip() + "\n" for line in lines])
       self.view.replace(edit,getViewRegion(self.view),newContent)
 
-class AlignAtBlockEnd(sublime_plugin.TextCommand):
+# All lines where a cursor is placed will be filled with whitespace.
+# All lines that have less characters as the longest line will be filled
+# with whitespace until aligning with the longest line.
+# After filling up whitespace the 
+class AlignAtBlockEndCommand(sublime_plugin.TextCommand):
 
    def maxLength(self, edit):
       maxLength = 0

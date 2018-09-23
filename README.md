@@ -16,6 +16,11 @@ Usage
 - Exit Block Mode: Command palette or `Edit -> Pseudo Block Mode -> Enter block mode`
 - Align cursor at end: Command palette or `Edit -> Pseudo Block Mode -> Align cursors at end`
 
+License
+---
+
+GNU General Public License v3.0
+
 Contributing
 ---
 
